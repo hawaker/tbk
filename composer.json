@@ -1,0 +1,22 @@
+{
+    "name": "hawaker/tbk",
+    "description": "taobao ke api download from open.taobao.com",
+    "type": "library",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "hawaker",
+            "email": "hawaker@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "tbk\\Top\\": "scr/Top/",
+            "tbk\\Top\\security\\": "scr/Top/security/",
+            "tbk\\Top\\request\\": "scr/Top/request/",
+            "tbk\\Top\\domain\\": "scr/Top/domain/"
+        }
+    }
+}
