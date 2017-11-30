@@ -1,6 +1,6 @@
 <?php
 
-namespace tbk\Top\domain;
+namespace Top\domain;
 
 /**
  * KFC 关键词过滤匹配结果

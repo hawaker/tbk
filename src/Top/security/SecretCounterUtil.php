@@ -1,7 +1,7 @@
 <?php
 
-namespace tbk\Top\security;
-use tbk\Top\security\TopSdkFeedbackUploadRequest;
+namespace Top\security;
+use Top\security\TopSdkFeedbackUploadRequest;
 
 class SecretCounterUtil {
 

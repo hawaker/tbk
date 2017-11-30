@@ -1,6 +1,6 @@
 <?php
 
-namespace tbk\Top;
+namespace Top;
 
 class ApplicationVar {
 

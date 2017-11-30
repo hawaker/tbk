@@ -1,9 +1,9 @@
 <?php
 
-namespace tbk\Top;
+namespace Top;
 
-use tbk\Top\ResultSet;
-use tbk\Top\TopLogger;
+use Top\ResultSet;
+use Top\TopLogger;
 use Exception;
 
 class TopClient {

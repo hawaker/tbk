@@ -1,6 +1,6 @@
 <?php
 
-namespace tbk\Top\security;
+namespace Top\security;
 
 /**
  * TOP API: taobao.top.sdk.feedback.upload request

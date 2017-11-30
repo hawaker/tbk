@@ -1,8 +1,8 @@
 <?php
 
-namespace tbk\Top\request;
+namespace Top\request;
 
-use tbk\Top\RequestCheckUtil;
+use Top\RequestCheckUtil;
 
 /**
  * TOP API: taobao.tbk.uatm.favorites.item.get request

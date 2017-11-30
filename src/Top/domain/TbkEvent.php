@@ -1,6 +1,6 @@
 <?php
 
-namespace tbk\Top\domain;
+namespace Top\domain;
 
 /**
  * 淘客定向招商活动基本信息

@@ -1,6 +1,6 @@
 <?php
 
-namespace tbk\Top\domain;
+namespace Top\domain;
 
 /**
  * 淘宝客店铺

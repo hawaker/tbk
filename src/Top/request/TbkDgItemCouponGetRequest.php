@@ -1,7 +1,7 @@
 <?php
 
-namespace tbk\Top\request;
-use tbk\Top\RequestCheckUtil;
+namespace Top\request;
+use Top\RequestCheckUtil;
 /**
  * TOP API: taobao.tbk.dg.item.coupon.get request
  * 

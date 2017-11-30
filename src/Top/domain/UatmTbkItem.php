@@ -1,6 +1,6 @@
 <?php
 
-namespace tbk\Top\domain;
+namespace Top\domain;
 
 /**
  * 淘宝联盟选品和招商宝贝信息

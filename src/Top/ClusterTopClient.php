@@ -1,10 +1,10 @@
 <?php
 
-namespace tbk\Top;
+namespace Top;
 
-use tbk\Top\TopClient;
-use tbk\Top\ApplicationVar;
-use tbk\Top\HttpdnsGetRequest;
+use Top\TopClient;
+use Top\ApplicationVar;
+use Top\HttpdnsGetRequest;
 
 class ClusterTopClient extends TopClient {
 

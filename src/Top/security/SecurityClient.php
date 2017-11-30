@@ -1,7 +1,7 @@
 <?php
 
-namespace tbk\Top\security;
-use tbk\Top\security\SecurityUtil;
+namespace Top\security;
+use Top\security\SecurityUtil;
 use Exception;
 
 class SecurityClient {

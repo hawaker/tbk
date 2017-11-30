@@ -1,6 +1,6 @@
 <?php
 
-namespace tbk\Top\request;
+namespace Top\request;
 
 /**
  * TOP API: taobao.wireless.share.tpwd.create request

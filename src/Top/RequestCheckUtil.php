@@ -1,6 +1,6 @@
 <?php
 
-namespace tbk\Top;
+namespace Top;
 
 use Exception;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace tbk\Top;
+namespace Top;
 
 /**
  * TOP SDK 入口文件

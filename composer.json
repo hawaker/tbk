@@ -12,10 +12,10 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "tbk\\Top\\": "scr/Top/",
-            "tbk\\Top\\security\\": "scr/Top/security/",
-            "tbk\\Top\\request\\": "scr/Top/request/",
-            "tbk\\Top\\domain\\": "scr/Top/domain/"
+            "Top\\": "scr/Top/",
+            "Top\\security\\": "scr/Top/security/",
+            "Top\\request\\": "scr/Top/request/",
+            "Top\\domain\\": "scr/Top/domain/"
         }
     }
 }

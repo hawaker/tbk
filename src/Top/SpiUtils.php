@@ -1,8 +1,8 @@
 <?php
 
-namespace tbk\Top;
+namespace Top;
 
-use tbk\Top\TopLogger;
+use Top\TopLogger;
 
 class SpiUtils {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace tbk\Top;
+namespace Top;
 
 /**
  * 返回的默认类
