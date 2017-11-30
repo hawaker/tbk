@@ -9,13 +9,12 @@
             "email": "hawaker@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "php":"^5.3|^7.0"
+    },
     "autoload": {
         "psr-4": {
-            "Top\\": "scr/Top/",
-            "Top\\security\\": "scr/Top/security/",
-            "Top\\request\\": "scr/Top/request/",
-            "Top\\domain\\": "scr/Top/domain/"
+            "Top\\": "scr/Top"
         }
     }
 }
