@@ -15,6 +15,7 @@ class TopClient {
     public $format = "xml";
     public $connectTimeout;
     public $readTimeout;
+    public $jsonArray = true;
 
     /** 是否打开入参check* */
     public $checkRequest = true;
@@ -257,7 +258,7 @@ class TopClient {
         //解析TOP返回结果
         $respWellFormed = false;
         if ("json" == $this->format) {
-            $respObject = json_decode($resp);
+            $respObject = json_decode($resp, $this->jsonArray);
             if (null !== $respObject) {
                 $respWellFormed = true;
                 foreach ($respObject as $propKey => $propValue) {
@@ -281,7 +282,7 @@ class TopClient {
         if (isset($respObject->code)) {
             $logger = new TopLogger;
             $logger->conf["log_file"] = rtrim(TOP_SDK_WORK_DIR, '\\/') . '/' . "logs/top_biz_err_" . $this->appkey . "_" . date("Y-m-d") . ".log";
-            $logger->log(array(date("Y-m-d H:i:s"),$resp));
+            $logger->log(array(date("Y-m-d H:i:s"), $resp));
         }
         return $respObject;
     }
