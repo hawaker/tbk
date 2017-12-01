@@ -1,14 +1,14 @@
 <?php
 
-namespace Top;
+namespace Top\Request;
 
-class HttpdnsGetRequest {
+use Top\RequestCheckUtil;
 
-    private $apiParas = array();
+abstract class RequestBase implements RequestInterface {
 
-    public function getApiMethodName() {
-        return "taobao.httpdns.get";
-    }
+    protected $apiParas = [];
+
+    abstract function getApiMethodName();
 
     public function getApiParas() {
         return $this->apiParas;
@@ -22,5 +22,6 @@ class HttpdnsGetRequest {
         $this->apiParas[$key] = $value;
         $this->$key = $value;
     }
+
 
 }

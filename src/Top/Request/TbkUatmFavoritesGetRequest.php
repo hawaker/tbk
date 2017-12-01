@@ -10,7 +10,7 @@ use Top\RequestCheckUtil;
  * @author auto create
  * @since 1.0, 2016.04.29
  */
-class TbkUatmFavoritesGetRequest {
+class TbkUatmFavoritesGetRequest extends RequestBase {
 
     /**
      * 需要返回的字段列表，不能为空，字段名之间使用逗号分隔
@@ -31,7 +31,6 @@ class TbkUatmFavoritesGetRequest {
      * 默认值-1；选品库类型，1：普通选品组，2：高佣选品组，-1，同时输出所有类型的选品组
      * */
     private $type;
-    private $apiParas = array();
 
     public function setFields($fields) {
         $this->fields = $fields;
@@ -73,18 +72,8 @@ class TbkUatmFavoritesGetRequest {
         return "taobao.tbk.uatm.favorites.get";
     }
 
-    public function getApiParas() {
-        return $this->apiParas;
-    }
-
     public function check() {
-
         RequestCheckUtil::checkNotNull($this->fields, "fields");
-    }
-
-    public function putOtherTextParam($key, $value) {
-        $this->apiParas[$key] = $value;
-        $this->$key = $value;
     }
 
 }

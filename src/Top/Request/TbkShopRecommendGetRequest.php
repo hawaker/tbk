@@ -1,14 +1,16 @@
 <?php
 
 namespace Top\Request;
+
 use Top\RequestCheckUtil;
+
 /**
  * TOP API: taobao.tbk.shop.recommend.get request
  * 
  * @author auto create
  * @since 1.0, 2017.06.17
  */
-class TbkShopRecommendGetRequest {
+class TbkShopRecommendGetRequest extends RequestBase {
 
     /**
      * 返回数量，默认20，最大值40
@@ -29,7 +31,6 @@ class TbkShopRecommendGetRequest {
      * 卖家Id
      * */
     private $userId;
-    private $apiParas = array();
 
     public function setCount($count) {
         $this->count = $count;
@@ -71,19 +72,9 @@ class TbkShopRecommendGetRequest {
         return "taobao.tbk.shop.recommend.get";
     }
 
-    public function getApiParas() {
-        return $this->apiParas;
-    }
-
     public function check() {
-
         RequestCheckUtil::checkNotNull($this->fields, "fields");
         RequestCheckUtil::checkNotNull($this->userId, "userId");
-    }
-
-    public function putOtherTextParam($key, $value) {
-        $this->apiParas[$key] = $value;
-        $this->$key = $value;
     }
 
 }

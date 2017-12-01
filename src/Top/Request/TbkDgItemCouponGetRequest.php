@@ -1,14 +1,16 @@
 <?php
 
 namespace Top\Request;
+
 use Top\RequestCheckUtil;
+
 /**
  * TOP API: taobao.tbk.dg.item.coupon.get request
  * 
  * @author auto create
  * @since 1.0, 2017.06.21
  */
-class TbkDgItemCouponGetRequest {
+class TbkDgItemCouponGetRequest extends RequestBase {
 
     /**
      * mm_xxx_xxx_xxx的第三位
@@ -39,7 +41,6 @@ class TbkDgItemCouponGetRequest {
      * 查询词
      * */
     private $q;
-    private $apiParas = array();
 
     public function setAdzoneId($adzoneId) {
         $this->adzoneId = $adzoneId;
@@ -99,19 +100,9 @@ class TbkDgItemCouponGetRequest {
         return "taobao.tbk.dg.item.coupon.get";
     }
 
-    public function getApiParas() {
-        return $this->apiParas;
-    }
-
     public function check() {
-
         RequestCheckUtil::checkNotNull($this->adzoneId, "adzoneId");
         RequestCheckUtil::checkMaxLength($this->cat, 10, "cat");
-    }
-
-    public function putOtherTextParam($key, $value) {
-        $this->apiParas[$key] = $value;
-        $this->$key = $value;
     }
 
 }

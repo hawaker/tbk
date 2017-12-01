@@ -4,7 +4,7 @@ namespace Top;
 
 use Top\TopClient;
 use Top\ApplicationVar;
-use Top\HttpdnsGetRequest;
+use Top\Request\HttpdnsGetRequest;
 
 class ClusterTopClient extends TopClient {
 
@@ -64,7 +64,6 @@ class ClusterTopClient extends TopClient {
         $config = ClusterTopClient::$dnsconfig['config'];
         $duration = $config['interval'];
         ClusterTopClient::$cfgDuration = $duration;
-
         return ClusterTopClient::$cfgDuration;
     }
 
@@ -88,23 +87,16 @@ class ClusterTopClient extends TopClient {
         if (!$urlSchema) {
             return null;
         }
-
         if (!ClusterTopClient::$dnsconfig['env']) {
             return null;
         }
-
-
         if (!array_key_exists($currentEnv, ClusterTopClient::$dnsconfig['env'])) {
             return null;
         }
-
-
         $hostList = ClusterTopClient::$dnsconfig['env'][$currentEnv];
         if (!$hostList) {
             return null;
         }
-
-
         $vipList = null;
         foreach ($hostList as $key => $value) {
             if (strcmp($key, $urlSchema['host']) == 0 && strcmp($value['proto'], $urlSchema['scheme']) == 0) {
@@ -113,7 +105,6 @@ class ClusterTopClient extends TopClient {
             }
         }
         $vip = $this->getRandomWeightElement($vipList['vip']);
-
         if ($vip) {
             return $urlSchema['scheme'] . "://" . $vip . $urlSchema['path'];
         }

@@ -10,7 +10,7 @@ use Top\RequestCheckUtil;
  * @author auto create
  * @since 1.0, 2017.08.23
  */
-class TbkTpwdCreateRequest {
+class TbkTpwdCreateRequest extends RequestBase {
 
     /**
      * 扩展字段JSON格式
@@ -36,7 +36,6 @@ class TbkTpwdCreateRequest {
      * 生成口令的淘宝用户ID
      * */
     private $userId;
-    private $apiParas = array();
 
     public function setExt($ext) {
         $this->ext = $ext;
@@ -87,19 +86,9 @@ class TbkTpwdCreateRequest {
         return "taobao.tbk.tpwd.create";
     }
 
-    public function getApiParas() {
-        return $this->apiParas;
-    }
-
     public function check() {
-
         RequestCheckUtil::checkNotNull($this->text, "text");
         RequestCheckUtil::checkNotNull($this->url, "url");
-    }
-
-    public function putOtherTextParam($key, $value) {
-        $this->apiParas[$key] = $value;
-        $this->$key = $value;
     }
 
 }

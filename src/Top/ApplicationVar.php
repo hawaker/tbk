@@ -18,8 +18,6 @@ class ApplicationVar {
         if (!is_string($var_name) || empty($var_name)) {
             return false;
         }
-
-
         $this->application[$var_name] = $var_value;
     }
 

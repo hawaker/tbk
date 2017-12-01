@@ -10,7 +10,7 @@ use Top\RequestCheckUtil;
  * @author auto create
  * @since 1.0, 2017.06.17
  */
-class TbkJuTqgGetRequest {
+class TbkJuTqgGetRequest extends RequestBase {
 
     /**
      * 推广位id（推广位申请方式：http://club.alimama.com/read.php?spm=0.0.0.0.npQdST&tid=6306396&ds=1&page=1&toread=1）
@@ -41,7 +41,6 @@ class TbkJuTqgGetRequest {
      * 最早开团时间
      * */
     private $startTime;
-    private $apiParas = array();
 
     public function setAdzoneId($adzoneId) {
         $this->adzoneId = $adzoneId;
@@ -101,21 +100,11 @@ class TbkJuTqgGetRequest {
         return "taobao.tbk.ju.tqg.get";
     }
 
-    public function getApiParas() {
-        return $this->apiParas;
-    }
-
     public function check() {
-
         RequestCheckUtil::checkNotNull($this->adzoneId, "adzoneId");
         RequestCheckUtil::checkNotNull($this->endTime, "endTime");
         RequestCheckUtil::checkNotNull($this->fields, "fields");
         RequestCheckUtil::checkNotNull($this->startTime, "startTime");
-    }
-
-    public function putOtherTextParam($key, $value) {
-        $this->apiParas[$key] = $value;
-        $this->$key = $value;
     }
 
 }

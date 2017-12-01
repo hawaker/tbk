@@ -8,13 +8,12 @@ namespace Top\Request;
  * @author auto create
  * @since 1.0, 2017.04.14
  */
-class JuItemsSearchRequest {
+class JuItemsSearchRequest extends RequestBase {
 
     /**
      * query
      * */
     private $paramTopItemQuery;
-    private $apiParas = array();
 
     public function setParamTopItemQuery($paramTopItemQuery) {
         $this->paramTopItemQuery = $paramTopItemQuery;
@@ -27,19 +26,6 @@ class JuItemsSearchRequest {
 
     public function getApiMethodName() {
         return "taobao.ju.items.search";
-    }
-
-    public function getApiParas() {
-        return $this->apiParas;
-    }
-
-    public function check() {
-        
-    }
-
-    public function putOtherTextParam($key, $value) {
-        $this->apiParas[$key] = $value;
-        $this->$key = $value;
     }
 
 }

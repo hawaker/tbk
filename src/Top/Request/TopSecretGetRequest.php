@@ -10,7 +10,7 @@ use Top\RequestCheckUtil;
  * @author auto create
  * @since 1.0, 2016.08.19
  */
-class TopSecretGetRequest {
+class TopSecretGetRequest extends RequestBase {
 
     /**
      * 自定义用户id
@@ -26,7 +26,6 @@ class TopSecretGetRequest {
      * 秘钥版本号
      * */
     private $secretVersion;
-    private $apiParas = array();
 
     public function setCustomerUserId($customerUserId) {
         $this->customerUserId = $customerUserId;
@@ -59,18 +58,8 @@ class TopSecretGetRequest {
         return "taobao.top.secret.get";
     }
 
-    public function getApiParas() {
-        return $this->apiParas;
-    }
-
     public function check() {
-
         RequestCheckUtil::checkNotNull($this->randomNum, "randomNum");
-    }
-
-    public function putOtherTextParam($key, $value) {
-        $this->apiParas[$key] = $value;
-        $this->$key = $value;
     }
 
 }

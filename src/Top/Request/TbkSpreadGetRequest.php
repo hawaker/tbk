@@ -8,13 +8,12 @@ namespace Top\Request;
  * @author auto create
  * @since 1.0, 2017.06.17
  */
-class TbkSpreadGetRequest {
+class TbkSpreadGetRequest extends RequestBase {
 
     /**
      * 请求列表，内部包含多个url
      * */
     private $requests;
-    private $apiParas = array();
 
     public function setRequests($requests) {
         $this->requests = $requests;
@@ -27,19 +26,6 @@ class TbkSpreadGetRequest {
 
     public function getApiMethodName() {
         return "taobao.tbk.spread.get";
-    }
-
-    public function getApiParas() {
-        return $this->apiParas;
-    }
-
-    public function check() {
-        
-    }
-
-    public function putOtherTextParam($key, $value) {
-        $this->apiParas[$key] = $value;
-        $this->$key = $value;
     }
 
 }

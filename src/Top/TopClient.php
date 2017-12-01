@@ -5,6 +5,7 @@ namespace Top;
 use Top\ResultSet;
 use Top\TopLogger;
 use Exception;
+use Top\Request\RequestInterface;
 
 class TopClient {
 
@@ -14,19 +15,23 @@ class TopClient {
     public $format = "xml";
     public $connectTimeout;
     public $readTimeout;
+
     /** 是否打开入参check* */
     public $checkRequest = true;
     protected $signMethod = "md5";
     protected $apiVersion = "2.0";
     protected $sdkVersion = "top-sdk-php-20151012";
 
-    public function getAppkey() {
-        return $this->appkey;
-    }
-
     public function __construct($appkey = "", $secretKey = "") {
         $this->appkey = $appkey;
         $this->secretKey = $secretKey;
+        if (!defined("TOP_SDK_WORK_DIR")) {
+            define("TOP_SDK_WORK_DIR", "/tmp/");
+        }
+    }
+
+    public function getAppkey() {
+        return $this->appkey;
     }
 
     protected function generateSign($params) {
@@ -189,7 +194,7 @@ class TopClient {
         $logger->log($logData);
     }
 
-    public function execute($request, $session = null, $bestUrl = null) {
+    public function execute(RequestInterface $request, $session = null, $bestUrl = null) {
         $result = new ResultSet();
         if ($this->checkRequest) {
             try {
@@ -210,7 +215,6 @@ class TopClient {
         if (null != $session) {
             $sysParams["session"] = $session;
         }
-        $apiParams = array();
         //获取业务参数
         $apiParams = $request->getApiParas();
         //系统参数放入GET请求串
@@ -277,36 +281,9 @@ class TopClient {
         if (isset($respObject->code)) {
             $logger = new TopLogger;
             $logger->conf["log_file"] = rtrim(TOP_SDK_WORK_DIR, '\\/') . '/' . "logs/top_biz_err_" . $this->appkey . "_" . date("Y-m-d") . ".log";
-            $logger->log(array(
-                date("Y-m-d H:i:s"),
-                $resp
-            ));
+            $logger->log(array(date("Y-m-d H:i:s"),$resp));
         }
         return $respObject;
-    }
-
-    public function exec($paramsArray) {
-        if (!isset($paramsArray["method"])) {
-            trigger_error("No api name passed");
-        }
-        $inflector = new LtInflector;
-        $inflector->conf["separator"] = ".";
-        $requestClassName = ucfirst($inflector->camelize(substr($paramsArray["method"], 7))) . "Request";
-        if (!class_exists($requestClassName)) {
-            trigger_error("No such api: " . $paramsArray["method"]);
-        }
-        $session = isset($paramsArray["session"]) ? $paramsArray["session"] : null;
-        $req = new $requestClassName;
-        foreach ($paramsArray as $paraKey => $paraValue) {
-            $inflector->conf["separator"] = "_";
-            $setterMethodName = $inflector->camelize($paraKey);
-            $inflector->conf["separator"] = ".";
-            $setterMethodName = "set" . $inflector->camelize($setterMethodName);
-            if (method_exists($req, $setterMethodName)) {
-                $req->$setterMethodName($paraValue);
-            }
-        }
-        return $this->execute($req, $session);
     }
 
     private function getClusterTag() {

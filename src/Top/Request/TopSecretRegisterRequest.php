@@ -8,13 +8,12 @@ namespace Top\Request;
  * @author auto create
  * @since 1.0, 2016.08.16
  */
-class TopSecretRegisterRequest {
+class TopSecretRegisterRequest extends RequestBase {
 
     /**
      * 用户id，保证唯一
      * */
     private $userId;
-    private $apiParas = array();
 
     public function setUserId($userId) {
         $this->userId = $userId;
@@ -27,19 +26,6 @@ class TopSecretRegisterRequest {
 
     public function getApiMethodName() {
         return "taobao.top.secret.register";
-    }
-
-    public function getApiParas() {
-        return $this->apiParas;
-    }
-
-    public function check() {
-        
-    }
-
-    public function putOtherTextParam($key, $value) {
-        $this->apiParas[$key] = $value;
-        $this->$key = $value;
     }
 
 }

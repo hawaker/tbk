@@ -3,13 +3,14 @@
 namespace Top\Request;
 
 use Top\RequestCheckUtil;
+
 /**
  * TOP API: taobao.tbk.item.get request
  * 
  * @author auto create
  * @since 1.0, 2016.07.25
  */
-class TbkItemGetRequest {
+class TbkItemGetRequest extends RequestBase {
 
     /**
      * 后台类目ID，用,分割，最大10个，该ID可以通过taobao.itemcats.get接口获取到
@@ -80,7 +81,6 @@ class TbkItemGetRequest {
      * 淘客佣金比率上限，如：1234表示12.34%
      * */
     private $startTkRate;
-    private $apiParas = array();
 
     public function setCat($cat) {
         $this->cat = $cat;
@@ -212,18 +212,8 @@ class TbkItemGetRequest {
         return "taobao.tbk.item.get";
     }
 
-    public function getApiParas() {
-        return $this->apiParas;
-    }
-
     public function check() {
-
         RequestCheckUtil::checkNotNull($this->fields, "fields");
-    }
-
-    public function putOtherTextParam($key, $value) {
-        $this->apiParas[$key] = $value;
-        $this->$key = $value;
     }
 
 }

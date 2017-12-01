@@ -1,14 +1,16 @@
 <?php
 
 namespace Top\Request;
+
 use Top\RequestCheckUtil;
+
 /**
  * TOP API: taobao.tbk.shop.get request
  * 
  * @author auto create
  * @since 1.0, 2017.06.17
  */
-class TbkShopGetRequest {
+class TbkShopGetRequest extends RequestBase {
 
     /**
      * 累计推广商品上限
@@ -84,7 +86,6 @@ class TbkShopGetRequest {
      * 店铺商品总数下限
      * */
     private $startTotalAction;
-    private $apiParas = array();
 
     public function setEndAuctionCount($endAuctionCount) {
         $this->endAuctionCount = $endAuctionCount;
@@ -225,19 +226,9 @@ class TbkShopGetRequest {
         return "taobao.tbk.shop.get";
     }
 
-    public function getApiParas() {
-        return $this->apiParas;
-    }
-
     public function check() {
-
         RequestCheckUtil::checkNotNull($this->fields, "fields");
         RequestCheckUtil::checkNotNull($this->q, "q");
-    }
-
-    public function putOtherTextParam($key, $value) {
-        $this->apiParas[$key] = $value;
-        $this->$key = $value;
     }
 
 }

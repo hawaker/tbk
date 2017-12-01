@@ -10,7 +10,7 @@ use Top\RequestCheckUtil;
  * @author auto create
  * @since 1.0, 2017.07.26
  */
-class TbkUatmFavoritesItemGetRequest {
+class TbkUatmFavoritesItemGetRequest extends RequestBase {
 
     /**
      * 推广位id，需要在淘宝联盟后台创建；且属于appkey备案的媒体id（siteid），如何获取adzoneid，请参考，http://club.alimama.com/read-htm-tid-6333967.html?spm=0.0.0.0.msZnx5
@@ -46,7 +46,6 @@ class TbkUatmFavoritesItemGetRequest {
      * 自定义输入串，英文和数字组成，长度不能大于12个字符，区分不同的推广渠道
      * */
     private $unid;
-    private $apiParas = array();
 
     public function setAdzoneId($adzoneId) {
         $this->adzoneId = $adzoneId;
@@ -115,20 +114,10 @@ class TbkUatmFavoritesItemGetRequest {
         return "taobao.tbk.uatm.favorites.item.get";
     }
 
-    public function getApiParas() {
-        return $this->apiParas;
-    }
-
     public function check() {
-
         RequestCheckUtil::checkNotNull($this->adzoneId, "adzoneId");
         RequestCheckUtil::checkNotNull($this->favoritesId, "favoritesId");
         RequestCheckUtil::checkNotNull($this->fields, "fields");
-    }
-
-    public function putOtherTextParam($key, $value) {
-        $this->apiParas[$key] = $value;
-        $this->$key = $value;
     }
 
 }

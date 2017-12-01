@@ -1,20 +1,21 @@
 <?php
 
 namespace Top\Request;
+
 use Top\RequestCheckUtil;
+
 /**
  * TOP API: taobao.tbk.coupon.get request
  * 
  * @author auto create
  * @since 1.0, 2017.08.25
  */
-class TbkCouponGetRequest {
+class TbkCouponGetRequest extends RequestBase {
 
     /**
      * 带券ID与商品ID的加密串
      * */
     private $me;
-    private $apiParas = array();
 
     public function setMe($me) {
         $this->me = $me;
@@ -29,18 +30,8 @@ class TbkCouponGetRequest {
         return "taobao.tbk.coupon.get";
     }
 
-    public function getApiParas() {
-        return $this->apiParas;
-    }
-
     public function check() {
-
         RequestCheckUtil::checkNotNull($this->me, "me");
-    }
-
-    public function putOtherTextParam($key, $value) {
-        $this->apiParas[$key] = $value;
-        $this->$key = $value;
     }
 
 }

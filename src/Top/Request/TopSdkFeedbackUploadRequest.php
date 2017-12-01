@@ -10,7 +10,7 @@ use Top\RequestCheckUtil;
  * @author auto create
  * @since 1.0, 2016.08.19
  */
-class TopSdkFeedbackUploadRequest {
+class TopSdkFeedbackUploadRequest extends RequestBase {
 
     /**
      * 具体内容，json形式
@@ -21,7 +21,6 @@ class TopSdkFeedbackUploadRequest {
      * 1、回传加密信息
      * */
     private $type;
-    private $apiParas = array();
 
     public function setContent($content) {
         $this->content = $content;
@@ -45,18 +44,8 @@ class TopSdkFeedbackUploadRequest {
         return "taobao.top.sdk.feedback.upload";
     }
 
-    public function getApiParas() {
-        return $this->apiParas;
-    }
-
     public function check() {
-
         RequestCheckUtil::checkNotNull($this->type, "type");
-    }
-
-    public function putOtherTextParam($key, $value) {
-        $this->apiParas[$key] = $value;
-        $this->$key = $value;
     }
 
 }

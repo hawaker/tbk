@@ -1,14 +1,16 @@
 <?php
 
 namespace Top\Request;
+
 use Top\RequestCheckUtil;
+
 /**
  * TOP API: taobao.tbk.item.info.get request
  * 
  * @author auto create
  * @since 1.0, 2017.09.05
  */
-class TbkItemInfoGetRequest {
+class TbkItemInfoGetRequest extends RequestBase {
 
     /**
      * 需返回的字段列表
@@ -24,7 +26,6 @@ class TbkItemInfoGetRequest {
      * 链接形式：1：PC，2：无线，默认：１
      * */
     private $platform;
-    private $apiParas = array();
 
     public function setFields($fields) {
         $this->fields = $fields;
@@ -57,19 +58,9 @@ class TbkItemInfoGetRequest {
         return "taobao.tbk.item.info.get";
     }
 
-    public function getApiParas() {
-        return $this->apiParas;
-    }
-
     public function check() {
-
         RequestCheckUtil::checkNotNull($this->fields, "fields");
         RequestCheckUtil::checkNotNull($this->numIids, "numIids");
-    }
-
-    public function putOtherTextParam($key, $value) {
-        $this->apiParas[$key] = $value;
-        $this->$key = $value;
     }
 
 }
