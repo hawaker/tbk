@@ -20,7 +20,7 @@ abstract class RequestBase implements RequestInterface {
 
     public function check() {
         foreach ($this->getNotAllowNullProperty() as $value) {
-            RequestCheckUtil::checkNotNull($this->$value, $value);
+            RequestCheckUtil::checkNotNull($this->apiParas[$value], $value);
         }
     }
 
@@ -39,7 +39,7 @@ abstract class RequestBase implements RequestInterface {
         $exists = property_exists(static::class, $property);
         if ($todo == 'set') {
             if ($exists) {
-                $this->apiParas[$property] = (string)$arguments[0];
+                $this->apiParas[$property] = (string) $arguments[0];
             }
             return $this;
         } else if ($todo == 'get') {
@@ -54,8 +54,8 @@ abstract class RequestBase implements RequestInterface {
         return strtolower(preg_replace('/((?<=[a-z])(?=[A-Z]))/', '_', $name));
     }
 
-    private function getApiUrl() {
-        $class_name = __CLASS__;
+    protected function getApiUrl() {
+        $class_name = join('', array_slice(explode('\\', get_class($this)), -1));
         $name = substr($class_name, 0, -7);
         $api_name = "taobao." . strtolower(preg_replace('/((?<=[a-z])(?=[A-Z]))/', '.', $name));
         return $api_name;
