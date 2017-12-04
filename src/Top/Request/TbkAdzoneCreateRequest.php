@@ -13,7 +13,7 @@ namespace Top\Request;
  *
  * @author V
  */
-class TbkAdzoneCreateRequest {
+class TbkAdzoneCreateRequest extends RequestBase {
 
     public $site_id;
     public $adzone_name;
