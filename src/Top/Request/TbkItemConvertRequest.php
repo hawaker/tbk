@@ -13,7 +13,7 @@ namespace Top\Request;
  *
  * @author V
  */
-class TbkItemConvert extends RequestBase {
+class TbkItemConvertRequest extends RequestBase {
     /*
      * document url=http://open.taobao.com/docs/api.htm?spm=a219a.7395905.0.0.U0HPQ4&apiId=24516
      * fields	String	必须	num_iid,click_url		需返回的字段列表
