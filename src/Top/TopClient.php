@@ -15,7 +15,7 @@ class TopClient {
     public $format = "xml";
     public $connectTimeout;
     public $readTimeout;
-    public $jsonArray = true;
+    public $jsonArray = false;
 
     /** 是否打开入参check* */
     public $checkRequest = true;
