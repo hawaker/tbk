@@ -36,7 +36,7 @@ abstract class RequestBase implements RequestInterface {
     public function __call($name, $arguments) {
         $todo = substr($name, 0, 3);
         $property = $this->__fengToSnack(substr($name, 3));
-        $exists = property_exists($this, $property);
+        $exists = property_exists(static::class, $property);
         if ($todo == 'set') {
             if ($exists) {
                 $this->apiParas[$property] = (string) $arguments[0];
@@ -55,7 +55,7 @@ abstract class RequestBase implements RequestInterface {
     }
 
     protected function getApiUrl() {
-        $class_name = join('', array_slice(explode('\\', get_class(static::class)), -1));
+        $class_name = join('', array_slice(explode('\\', get_class($this)), -1));
         $name = substr($class_name, 0, -7);
         $api_name = "taobao." . strtolower(preg_replace('/((?<=[a-z])(?=[A-Z]))/', '.', $name));
         return $api_name;
