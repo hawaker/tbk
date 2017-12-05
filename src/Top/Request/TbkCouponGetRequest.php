@@ -2,8 +2,6 @@
 
 namespace Top\Request;
 
-use Top\RequestCheckUtil;
-
 /**
  * TOP API: taobao.tbk.coupon.get request
  * 
@@ -15,23 +13,7 @@ class TbkCouponGetRequest extends RequestBase {
     /**
      * 带券ID与商品ID的加密串
      * */
-    private $me;
-
-    public function setMe($me) {
-        $this->me = $me;
-        $this->apiParas["me"] = $me;
-    }
-
-    public function getMe() {
-        return $this->me;
-    }
-
-    public function getApiMethodName() {
-        return "taobao.tbk.coupon.get";
-    }
-
-    public function check() {
-        RequestCheckUtil::checkNotNull($this->me, "me");
-    }
+    protected $me;
+    protected $notAllowNull = ['me'];
 
 }

@@ -2,8 +2,6 @@
 
 namespace Top\Request;
 
-use Top\RequestCheckUtil;
-
 /**
  * TOP API: taobao.topats.result.get request
  * 
@@ -15,23 +13,7 @@ class TopatsResultGetRequest extends RequestBase {
     /**
      * 任务ID，创建任务时返回的task_id
      * */
-    private $taskId;
-
-    public function setTaskId($taskId) {
-        $this->taskId = $taskId;
-        $this->apiParas["task_id"] = $taskId;
-    }
-
-    public function getTaskId() {
-        return $this->taskId;
-    }
-
-    public function getApiMethodName() {
-        return "taobao.topats.result.get";
-    }
-
-    public function check() {
-        RequestCheckUtil::checkNotNull($this->taskId, "taskId");
-    }
+    protected $task_id;
+    protected $notAllowNull = ['task_id'];
 
 }

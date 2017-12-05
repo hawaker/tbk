@@ -1,7 +1,7 @@
 <?php
 
 namespace Top\Request;
-use Top\RequestCheckUtil;
+
 /**
  * TOP API: taobao.files.get request
  * 
@@ -13,52 +13,17 @@ class FilesGetRequest extends RequestBase {
     /**
      * 搜索结束时间
      * */
-    private $endDate;
+    protected $end_date;
 
     /**
      * 搜索开始时间
      * */
-    private $startDate;
+    protected $start_date;
 
     /**
      * 下载链接状态。1:未下载。2:已下载
      * */
-    private $status;
-
-    public function setEndDate($endDate) {
-        $this->endDate = $endDate;
-        $this->apiParas["end_date"] = $endDate;
-    }
-
-    public function getEndDate() {
-        return $this->endDate;
-    }
-
-    public function setStartDate($startDate) {
-        $this->startDate = $startDate;
-        $this->apiParas["start_date"] = $startDate;
-    }
-
-    public function getStartDate() {
-        return $this->startDate;
-    }
-
-    public function setStatus($status) {
-        $this->status = $status;
-        $this->apiParas["status"] = $status;
-    }
-
-    public function getStatus() {
-        return $this->status;
-    }
-
-    public function getApiMethodName() {
-        return "taobao.files.get";
-    }
-
-    public function check() {
-        RequestCheckUtil::checkNotNull($this->endDate, "endDate");
-        RequestCheckUtil::checkNotNull($this->startDate, "startDate");
-    }
+    protected $status;
+    protected $notAllowNull = ['$start_date', '$end_date'];
 
 }

@@ -9,9 +9,5 @@ namespace Top\Request;
  * @since 1.0, 2014.11.26
  */
 class AppipGetRequest extends RequestBase {
-
-    public function getApiMethodName() {
-        return "taobao.appip.get";
-    }
-
+    
 }

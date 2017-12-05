@@ -9,9 +9,5 @@ namespace Top\Request;
  * @since 1.0, 2016.10.12
  */
 class TimeGetRequest extends RequestBase {
-
-    public function getApiMethodName() {
-        return "taobao.time.get";
-    }
-
+    
 }

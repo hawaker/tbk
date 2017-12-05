@@ -13,19 +13,6 @@ class JuItemsSearchRequest extends RequestBase {
     /**
      * query
      * */
-    private $paramTopItemQuery;
-
-    public function setParamTopItemQuery($paramTopItemQuery) {
-        $this->paramTopItemQuery = $paramTopItemQuery;
-        $this->apiParas["param_top_item_query"] = $paramTopItemQuery;
-    }
-
-    public function getParamTopItemQuery() {
-        return $this->paramTopItemQuery;
-    }
-
-    public function getApiMethodName() {
-        return "taobao.ju.items.search";
-    }
+    protected $param_top_item_query;
 
 }

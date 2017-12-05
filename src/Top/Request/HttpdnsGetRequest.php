@@ -9,9 +9,5 @@ namespace Top\Request;
  * @since 1.0, 2017.08.31
  */
 class HttpdnsGetRequest extends RequestBase {
-
-    public function getApiMethodName() {
-        return "taobao.httpdns.get";
-    }
-
+    
 }

@@ -2,8 +2,6 @@
 
 namespace Top\Request;
 
-use Top\RequestCheckUtil;
-
 /**
  * TOP API: taobao.tbk.item.recommend.get request
  * 
@@ -15,66 +13,22 @@ class TbkItemRecommendGetRequest extends RequestBase {
     /**
      * 返回数量，默认20，最大值40
      * */
-    private $count;
+    protected $count;
 
     /**
      * 需返回的字段列表
      * */
-    private $fields;
+    protected $fields;
 
     /**
      * 商品Id
      * */
-    private $numIid;
+    protected $num_iid;
 
     /**
      * 链接形式：1：PC，2：无线，默认：１
      * */
-    private $platform;
-
-    public function setCount($count) {
-        $this->count = $count;
-        $this->apiParas["count"] = $count;
-    }
-
-    public function getCount() {
-        return $this->count;
-    }
-
-    public function setFields($fields) {
-        $this->fields = $fields;
-        $this->apiParas["fields"] = $fields;
-    }
-
-    public function getFields() {
-        return $this->fields;
-    }
-
-    public function setNumIid($numIid) {
-        $this->numIid = $numIid;
-        $this->apiParas["num_iid"] = $numIid;
-    }
-
-    public function getNumIid() {
-        return $this->numIid;
-    }
-
-    public function setPlatform($platform) {
-        $this->platform = $platform;
-        $this->apiParas["platform"] = $platform;
-    }
-
-    public function getPlatform() {
-        return $this->platform;
-    }
-
-    public function getApiMethodName() {
-        return "taobao.tbk.item.recommend.get";
-    }
-
-    public function check() {
-        RequestCheckUtil::checkNotNull($this->fields, "fields");
-        RequestCheckUtil::checkNotNull($this->numIid, "numIid");
-    }
+    protected $platform;
+    protected $notAllowNull = ['fields', 'num_iid'];
 
 }

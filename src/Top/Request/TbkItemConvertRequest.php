@@ -26,12 +26,12 @@ class TbkItemConvertRequest extends RequestBase {
       dx	String	可选	1		1表示商品转通用计划链接，其他值或不传表示转营销计划链接
      */
 
-    private $fields;
-    private $num_iids;
-    private $addzone_id;
-    private $platform;
-    private $unid;
-    private $dx;
-    protected $notAllowNull = ['fields', 'num_iids', 'addzone_id'];
+    protected $fields;
+    protected $num_iids;
+    protected $adzone_id;
+    protected $platform;
+    protected $unid;
+    protected $dx;
+    protected $notAllowNull = ['fields', 'num_iids', 'adzone_id'];
 
 }

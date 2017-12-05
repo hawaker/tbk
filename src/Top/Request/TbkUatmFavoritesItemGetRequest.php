@@ -2,8 +2,6 @@
 
 namespace Top\Request;
 
-use Top\RequestCheckUtil;
-
 /**
  * TOP API: taobao.tbk.uatm.favorites.item.get request
  * 
@@ -15,109 +13,37 @@ class TbkUatmFavoritesItemGetRequest extends RequestBase {
     /**
      * 推广位id，需要在淘宝联盟后台创建；且属于appkey备案的媒体id（siteid），如何获取adzoneid，请参考，http://club.alimama.com/read-htm-tid-6333967.html?spm=0.0.0.0.msZnx5
      * */
-    private $adzoneId;
+    protected $adzone_id;
 
     /**
      * 选品库的id
      * */
-    private $favoritesId;
+    protected $favorites_id;
 
     /**
      * 需要输出则字段列表，逗号分隔
      * */
-    private $fields;
+    protected $fields;
 
     /**
      * 第几页，默认：1，从1开始计数
      * */
-    private $pageNo;
+    protected $page_no;
 
     /**
      * 页大小，默认20，1~100
      * */
-    private $pageSize;
+    protected $page_size;
 
     /**
      * 链接形式：1：PC，2：无线，默认：１
      * */
-    private $platform;
+    protected $platform;
 
     /**
      * 自定义输入串，英文和数字组成，长度不能大于12个字符，区分不同的推广渠道
      * */
-    private $unid;
-
-    public function setAdzoneId($adzoneId) {
-        $this->adzoneId = $adzoneId;
-        $this->apiParas["adzone_id"] = $adzoneId;
-    }
-
-    public function getAdzoneId() {
-        return $this->adzoneId;
-    }
-
-    public function setFavoritesId($favoritesId) {
-        $this->favoritesId = $favoritesId;
-        $this->apiParas["favorites_id"] = $favoritesId;
-    }
-
-    public function getFavoritesId() {
-        return $this->favoritesId;
-    }
-
-    public function setFields($fields) {
-        $this->fields = $fields;
-        $this->apiParas["fields"] = $fields;
-    }
-
-    public function getFields() {
-        return $this->fields;
-    }
-
-    public function setPageNo($pageNo) {
-        $this->pageNo = $pageNo;
-        $this->apiParas["page_no"] = $pageNo;
-    }
-
-    public function getPageNo() {
-        return $this->pageNo;
-    }
-
-    public function setPageSize($pageSize) {
-        $this->pageSize = $pageSize;
-        $this->apiParas["page_size"] = $pageSize;
-    }
-
-    public function getPageSize() {
-        return $this->pageSize;
-    }
-
-    public function setPlatform($platform) {
-        $this->platform = $platform;
-        $this->apiParas["platform"] = $platform;
-    }
-
-    public function getPlatform() {
-        return $this->platform;
-    }
-
-    public function setUnid($unid) {
-        $this->unid = $unid;
-        $this->apiParas["unid"] = $unid;
-    }
-
-    public function getUnid() {
-        return $this->unid;
-    }
-
-    public function getApiMethodName() {
-        return "taobao.tbk.uatm.favorites.item.get";
-    }
-
-    public function check() {
-        RequestCheckUtil::checkNotNull($this->adzoneId, "adzoneId");
-        RequestCheckUtil::checkNotNull($this->favoritesId, "favoritesId");
-        RequestCheckUtil::checkNotNull($this->fields, "fields");
-    }
+    protected $unid;
+    protected $notAllowNull = ['adzone_id', 'favorites_id', 'fields'];
 
 }

@@ -15,13 +15,13 @@ namespace Top\Request;
  */
 class TbkContentGetRequest extends RequestBase {
 
-    public $adzone_id;
-    public $type;
-    public $before_timestamp;
-    public $count;
-    public $cid;
-    public $image_width;
-    public $image_height;
-    public $notAllowNull = ['adzone_id'];
+    protected $adzone_id;
+    protected $type;
+    protected $before_timestamp;
+    protected $count;
+    protected $cid;
+    protected $image_width;
+    protected $image_height;
+    protected $notAllowNull = ['adzone_id'];
 
 }

@@ -15,8 +15,8 @@ namespace Top\Request;
  */
 class TbkAdzoneCreateRequest extends RequestBase {
 
-    public $site_id;
-    public $adzone_name;
-    public $notAllowNull = ['site_id', 'adzone_name'];
+    protected $site_id;
+    protected $adzone_name;
+    protected $notAllowNull = ['site_id', 'adzone_name'];
 
 }

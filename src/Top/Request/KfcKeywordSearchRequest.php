@@ -2,8 +2,6 @@
 
 namespace Top\Request;
 
-use Top\RequestCheckUtil;
-
 /**
  * TOP API: taobao.kfc.keyword.search request
  * 
@@ -20,51 +18,17 @@ class KfcKeywordSearchRequest extends RequestBase {
 
       通常apply参数是不需要传递的。如有特殊需求（比如特殊的过滤需求，需要自己维护一套自己词库），需传递此参数。
      * */
-    private $apply;
+    protected $apply;
 
     /**
      * 需要过滤的文本信息
      * */
-    private $content;
+    protected $content;
 
     /**
      * 发布信息的淘宝会员名，可以不传
      * */
-    private $nick;
-
-    public function setApply($apply) {
-        $this->apply = $apply;
-        $this->apiParas["apply"] = $apply;
-    }
-
-    public function getApply() {
-        return $this->apply;
-    }
-
-    public function setContent($content) {
-        $this->content = $content;
-        $this->apiParas["content"] = $content;
-    }
-
-    public function getContent() {
-        return $this->content;
-    }
-
-    public function setNick($nick) {
-        $this->nick = $nick;
-        $this->apiParas["nick"] = $nick;
-    }
-
-    public function getNick() {
-        return $this->nick;
-    }
-
-    public function getApiMethodName() {
-        return "taobao.kfc.keyword.search";
-    }
-
-    public function check() {
-        RequestCheckUtil::checkNotNull($this->content, "content");
-    }
+    protected $nick;
+    protected $notAllowNull = ['content'];
 
 }
