@@ -36,7 +36,7 @@ abstract class RequestBase implements RequestInterface {
     public function __call($name, $arguments) {
         $todo = substr($name, 0, 3);
         $property = $this->__fengToSnack(substr($name, 3));
-        $exists = property_exists(static::class, $property);
+        $exists = property_exists($this, $property);
         if ($todo == 'set') {
             if ($exists) {
                 $this->apiParas[$property] = (string) $arguments[0];
